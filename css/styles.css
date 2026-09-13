@@ -426,3 +426,49 @@
   margin: 0 0 32px;
   object-fit: cover;
 }
+
+/* Loading progress bar */
+.results-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 3px;
+  background: #1a73e8;
+  opacity: 0;
+}
+
+#resultsView.is-loading .results-header::after {
+  animation: search-loading 900ms ease-out forwards;
+}
+
+/* Temporarily hide results while loading */
+.results-main {
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+#resultsView.is-loading .results-main {
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+}
+
+@keyframes search-loading {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+
+  70% {
+    width: 78%;
+    opacity: 1;
+  }
+
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}

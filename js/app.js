@@ -57,14 +57,40 @@
       setTimeout(() => homeInput.focus({ preventScroll: true }), 80);
     }
 
-    function runSearch(query, push = true) {
-      const cleanQuery = (query || DEFAULT_QUERY).trim();
-      homeInput.value = cleanQuery;
-      headerInput.value = cleanQuery;
-      showOnly(resultsView);
-      updateClearButtons();
-      if (push) history.pushState({ view: 'results', query: cleanQuery }, '', '#search');
-    }
+let loadingTimer;
+
+function runSearch(query, push = true, animate = true) {
+  const cleanQuery = (query || DEFAULT_QUERY).trim();
+
+  homeInput.value = cleanQuery;
+  headerInput.value = cleanQuery;
+
+  showOnly(resultsView);
+  updateClearButtons();
+
+  clearTimeout(loadingTimer);
+
+  if (animate) {
+    // Restart the animation for every new search
+    resultsView.classList.remove("is-loading");
+    void resultsView.offsetWidth;
+    resultsView.classList.add("is-loading");
+
+    loadingTimer = setTimeout(() => {
+      resultsView.classList.remove("is-loading");
+    }, 900);
+  } else {
+    resultsView.classList.remove("is-loading");
+  }
+
+  if (push) {
+    history.pushState(
+      { view: "results", query: cleanQuery },
+      "",
+      "#search"
+    );
+  }
+}
 
     function openArticle(key, push = true) {
       const item = articles[key] || articles.revenge;
@@ -116,7 +142,9 @@
     window.addEventListener('popstate', event => {
       const state = event.state;
       if (!state || state.view === 'home') showHome(false);
-      else if (state.view === 'results') runSearch(state.query, false);
+     else if (state.view === "results") {
+  runSearch(state.query, false, false);
+}
       else if (state.view === 'article') openArticle(state.key, false);
     });
 
