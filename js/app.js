@@ -78,7 +78,7 @@ function runSearch(query, push = true, animate = true) {
 
     loadingTimer = setTimeout(() => {
       resultsView.classList.remove("is-loading");
-    }, 900);
+    }, 1500);
   } else {
     resultsView.classList.remove("is-loading");
   }
