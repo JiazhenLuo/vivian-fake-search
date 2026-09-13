@@ -472,3 +472,16 @@
     opacity: 0;
   }
 }
+
+.prop-disclaimer {
+  width: 100%;
+  padding: 20px;
+  margin-top: 80px;
+  box-sizing: border-box;
+
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #aaa;
+}
