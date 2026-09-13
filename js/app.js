@@ -15,7 +15,13 @@
       protection: {
         title: 'Protection Rituals Using Found Feathers',
         deck: 'A simple domestic rite for marking a boundary and returning what was found.',
-        body: `<p>Place the feather beside a bowl of water near the threshold until sunset. Tie a length of pale thread around the bowl, naming the boundary you wish to protect.</p><h2>Closing the rite</h2><p>Pour the water into the earth and leave the thread beneath a stone. The feather itself should be returned to the place where it was found.</p><p class="warning"></p>`
+        body:`<img
+      class="article-image"
+      src="images/FeatherBesideWater.png"
+      alt="FeatherBesideWater"
+    >
+    </img>
+     <p>Place the feather beside a bowl of water near the threshold until sunset. Tie a length of pale thread around the bowl, naming the boundary you wish to protect.</p><h2>Closing the rite</h2><p>Pour the water into the earth and leave the thread beneath a stone. The feather itself should be returned to the place where it was found.</p>`
       },
       revenge: {
         title: 'Spell for Getting Revenge',
