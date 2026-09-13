@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="A fictional search interface for screen playback.">
+  <title>Google Search</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234285f4'/%3E%3Cpath d='M45 31H32v7h7c-2 5-6 7-11 7-8 0-14-6-14-14s6-14 14-14c4 0 8 2 10 4l5-5c-4-4-9-6-15-6C16 10 7 19 7 31s9 21 21 21c13 0 21-9 21-21z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app">
+    <section id="homeView" class="home" aria-label="Search homepage">
+      <nav class="home-nav" aria-label="Account navigation">
+        <span class="nav-link">Mail</span>
+        <span class="nav-link">Images</span>
+        <span class="avatar" aria-label="Vivian account">V</span>
+      </nav>
+
+      <div class="home-main">
+        <div class="wordmark" aria-label="Google"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></div>
+        <form id="homeForm" class="search-form" role="search">
+          <label class="search-shell">
+            <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+            <input id="homeInput" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Search" placeholder="">
+            <button class="clear-button" type="button" aria-label="Clear search" data-clear="homeInput" hidden>×</button>
+          </label>
+          <div class="home-actions">
+            <button class="soft-button" type="submit">Google Search</button>
+            <button id="luckyButton" class="soft-button" type="button">I'm Feeling Curious</button>
+          </div>
+        </form>
+      </div>
+
+<!--        <p class="home-foot">Search results are generated for Vivian.</p>
+ -->    </section>
+
+    <section id="resultsView" hidden aria-label="Search results">
+      <header class="results-header">
+        <button class="mini-wordmark" type="button" data-home aria-label="Google home"><span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span></button>
+        <form id="headerForm" class="header-form" role="search">
+          <label class="search-shell">
+            <svg class="search-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+            <input id="headerInput" type="search" autocomplete="off" autocapitalize="none" spellcheck="false" aria-label="Search results query">
+            <button class="clear-button" type="button" aria-label="Clear search" data-clear="headerInput">×</button>
+          </label>
+        </form>
+      </header>
+
+      <div class="result-tabs" aria-label="Search categories">
+        <span class="result-tab active">All</span>
+        <span class="result-tab">Images</span>
+        <span class="result-tab">Books</span>
+        <span class="result-tab">More</span>
+      </div>
+
+      <div class="results-main">
+        <p class="result-count">About 7,420 results (0.38 seconds)</p>
+
+        <article class="result">
+          <button type="button" data-article="symbolism">
+            <span class="site-line"><span class="site-mark">A</span><span>Avian Lore Archive<span class="site-url">avianlore.example › field-notes › feathers</span></span></span>
+            <h2 class="result-title">Finding a Dead Bird Feather: Folklore &amp; Symbolism</h2>
+            <p class="result-copy">Across many traditions, a fallen feather can symbolize endings, warnings, or transition. Context—and the manner in which it was found—matters.</p>
+          </button>
+        </article>
+
+        <article class="result">
+          <button type="button" data-article="protection">
+            <span class="site-line"><span class="site-mark">H</span><span>Hearth &amp; Hollow<span class="site-url">hearthandhollow.example › rituals › protection</span></span></span>
+            <h2 class="result-title">Protection Rituals Using Found Feathers</h2>
+            <p class="result-copy">A quiet guide to cleansing, warding, and returning found objects to the earth. Includes notes on candles, thread, and personal tokens.</p>
+          </button>
+        </article>
+
+        <article class="result">
+          <button type="button" data-article="revenge">
+            <span class="site-line"><span class="site-mark">V</span><span>The Velvet Grimoire<span class="site-url">velvetgrimoire.example › workings › redress</span></span></span>
+            <h2 class="result-title">Spell for Getting Revenge</h2>
+            <p class="result-copy"><strong>A ritual of redress:</strong> black thread, a small mirror, a feather from a dead bird, and the name of the person who wronged you...</p>
+          </button>
+        </article>
+
+        <article class="result">
+          <button type="button" data-article="success">
+            <span class="site-line"><span class="site-mark">N</span><span>Nocturne Almanac<span class="site-url">nocturnealmanac.example › exchanges › ambition</span></span></span>
+            <h2 class="result-title">Spell for Success at the Cost of Someone Else’s Success</h2>
+            <p class="result-copy">An old exchange ritual said to turn another person’s momentum toward the petitioner. The working calls for a feather, wax, and two written names.</p>
+          </button>
+        </article>
+
+        <article class="result">
+          <button type="button" data-article="downfall">
+            <span class="site-line"><span class="site-mark">B</span><span>Book of Unquiet Things<span class="site-url">unquietthings.example › rites › undoing</span></span></span>
+            <h2 class="result-title">Spell for Someone’s Downfall</h2>
+            <p class="result-copy">A baneful working for loosening another person’s good fortune. Gather one dead bird feather, a length of red cord, soil, and a sealed jar.</p>
+          </button>
+        </article>
+
+        <section class="related" aria-label="Related searches">
+          <h2>Related searches</h2>
+          <div class="related-grid">
+            <button type="button" data-query="dead bird feather omen">dead bird feather omen</button>
+            <button type="button" data-query="ritual with black feather">ritual with black feather</button>
+            <button type="button" data-query="feather revenge spell">feather revenge spell</button>
+            <button type="button" data-query="what do dead birds symbolize">what do dead birds symbolize</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="articleView" hidden aria-label="Article">
+      <header class="article-header">
+        <button id="backButton" class="back-button" type="button" aria-label="Back to search results">←</button>
+        <div class="article-brand">The Archive of Small Rites</div>
+      </header>
+      <div class="article-page">
+        <article class="article">
+          <div class="article-kicker">Private workings · Field note 07</div>
+          <h1 id="articleTitle"></h1>
+          <p id="articleDeck" class="article-deck"></p>
+          <hr class="article-rule">
+          <div id="articleBody"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
